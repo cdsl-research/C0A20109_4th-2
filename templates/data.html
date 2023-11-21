@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>View Data</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 80%;
+        }
+
+        th, td {
+            border: 2px solid black;
+            padding: 1px;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+    <h1>Received Data</h1>
+    <table>
+        <tr>
+            <th>time</th>
+            <th>time_ms</th>
+            <th>x</th>
+            <th>y</th>
+            <th>z</th>
+        </tr>
+        {% for item in data %}
+            <tr>
+                <td>{{ item['timestamp'] }}</td>
+                <td>{{ item['timestamp_ms'] }}</td>
+                <td>{{ item['acceleration_x'] }}</td>
+                <td>{{ item['acceleration_y'] }}</td>
+                <td>{{ item['acceleration_z'] }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>

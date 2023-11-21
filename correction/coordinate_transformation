@@ -1,0 +1,22 @@
+def update_position(current_position, distance, angle):
+    # 現在位置を更新する
+    delta_x = distance * math.cos(math.radians(angle))
+    delta_y = distance * math.sin(math.radians(angle))
+    new_position = (current_position[0] + delta_x, current_position[1] + delta_y)
+    return new_position
+
+# 初期化
+current_position = (0, 0)  # 開始位置
+current_angle = 0  # 開始角度
+current_positionList = []
+
+for i in range(len(bending_angle)):
+    # 角度の更新
+    current_angle += bending_angle[i]
+
+    # 新しい位置の計算
+    current_position = update_position(current_position, distanceList[i], current_angle)
+    current_positionList.append(current_position)
+
+    # 新しい位置をマップにプロット (ここでは単に表示)
+    print(f"位置: {current_position}, 角度: {current_angle}")
